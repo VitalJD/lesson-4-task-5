@@ -1,0 +1,30 @@
+<div class="form-group row" color="primary">
+    <h2 style="text-align: center;">Курс лекций Angular 10</h2>
+</div>
+<div class="form-group row">
+    <!-- <label for="search" class="col-sm-2 col-form-label" 
+    style="text-align: left;">
+        Search
+    </label> -->
+    <input type="text" [(ngModel)]="searchValue" class="form-control" id="search" 
+    placeholder="Search" style="text-align: left;" />
+</div>
+<!-- Table Start -->
+<table class="table">
+    <thead class="thead-black">
+        <th scope="col">Номер</th>
+        <th scope="col">Дата урока</th>
+        <th scope="col">Тема урока</th>
+        <th scope="col">Домашнее задание</th>
+        <th scope="col">Примечание</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lesson of Lessons | searchfilter: searchValue">
+            <td scope="col">{{lesson.id}}</td>
+            <td scope="col">{{lesson.date}}</td>
+            <td scope="col">{{lesson.lessonTopic}}</td>
+            <td scope="col">{{lesson.homework}}</td>
+            <td scope="col">{{lesson.note}}</td>
+        </tr>
+    </tbody>
+</table>
